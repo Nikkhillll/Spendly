@@ -65,29 +65,6 @@ spendly/
 
 ---
 
-## 🔌 How to Connect Your Backend (when ready)
-
-All mock API logic lives in ONE file: `src/api/index.js`
-
-Replace each function with an axios call:
-
-```js
-// BEFORE (mock)
-export const login = (email, password) => {
-  const user = db.users.find(...);
-  ...
-};
-
-// AFTER (real backend)
-import axios from "axios";
-export const login = (email, password) =>
-  axios.post("/api/auth/login", { email, password }).then(res => res.data);
-```
-
-That's the only file you need to change. Every component stays the same.
-
----
-
 ## 📦 Dependencies
 
 | Package    | Purpose                  |
@@ -97,13 +74,18 @@ That's the only file you need to change. Every component stays the same.
 | recharts   | Pie + bar charts         |
 | vite       | Dev server + bundler     |
 
----
 
-## 🧭 Your Backend Learning Path
+## Live Demo
+https://spendly-brown.vercel.app/
 
-| Week | What to Build                                      |
-|------|----------------------------------------------------|
-| 1    | Express server + MongoDB connection + models       |
-| 2    | POST /api/auth/register and /login with JWT        |
-| 3    | GET/POST/DELETE /api/expenses with auth middleware |
-| 4    | Swap `src/api/index.js` mock → real axios calls    |
+## Backend API
+https://spendly-server.onrender.com
+
+## Tech Stack
+React
+Node.js
+Express
+MongoDB
+JWT Auth
+Chart.js
+
