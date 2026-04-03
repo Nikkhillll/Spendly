@@ -10,10 +10,7 @@ const app = express();
 
 // ── Middleware ────────────────────────────────────────────────────────────────
 app.use(cors({
-  origin: [
-    "http://localhost:5174",
-    "https://your-vercel-app.vercel.app"
-  ]
+  origin:"*"
 })); // allow React app to talk to us
 app.use(express.json());                             // parse JSON request bodies
 
