@@ -9,7 +9,12 @@ dotenv.config();
 const app = express();
 
 // ── Middleware ────────────────────────────────────────────────────────────────
-app.use(cors({ origin: "http://localhost:5174" })); // allow React app to talk to us
+app.use(cors({
+  origin: [
+    "http://localhost:5174",
+    "https://your-vercel-app.vercel.app"
+  ]
+})); // allow React app to talk to us
 app.use(express.json());                             // parse JSON request bodies
 
 // ── Routes ────────────────────────────────────────────────────────────────────
@@ -22,14 +27,15 @@ app.get("/", (req, res) => {
 });
 
 // ── Connect to MongoDB then start server ──────────────────────────────────────
-mongoose
-  .connect(process.env.MONGO_URI)
+const PORT = process.env.PORT || 5000;
+
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("✅ MongoDB connected");
-    app.listen(process.env.PORT, () => {
-      console.log(`✅ Server running on http://localhost:${process.env.PORT}`);
+    console.log("MongoDB connected");
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
     });
   })
   .catch((err) => {
-    console.error("❌ MongoDB connection failed:", err.message);
+    console.log(err);
   });

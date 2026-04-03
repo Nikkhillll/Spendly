@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // All requests go to your Express server
-const API = axios.create({ baseURL: "http://localhost:5000/api" });
+const API = axios.create({ baseURL: "https://spendly-server.onrender.com/api" });
 
 // Automatically attach the JWT token to every request
 API.interceptors.request.use((config) => {
