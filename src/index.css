@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Base */
+  --bg:           #f8f8f7;
+  --surface:      #ffffff;
+  --surface-2:    #f3f3f2;
+  --surface-3:    #ebebea;
+  --border:       #e5e5e3;
+  --border-2:     #d4d4d2;
+
+  /* Text */
+  --text-primary:   #111110;
+  --text-secondary: #6f6f6b;
+  --text-tertiary:  #a8a8a4;
+
+  /* Accent — one clean blue */
+  --accent:         #2563eb;
+  --accent-light:   #eff6ff;
+  --accent-muted:   #93c5fd;
+
+  /* Semantic */
+  --green:   #16a34a;
+  --green-bg:#f0fdf4;
+  --red:     #dc2626;
+  --red-bg:  #fef2f2;
+  --amber:   #d97706;
+  --amber-bg:#fffbeb;
+
+  /* Chart colors — muted, professional */
+  --c1: #2563eb;
+  --c2: #0891b2;
+  --c3: #059669;
+  --c4: #7c3aed;
+  --c5: #db2777;
+  --c6: #9a3412;
+
+  /* Spacing */
+  --radius-sm: 6px;
+  --radius:    10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+  --shadow:    0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md: 0 4px 6px rgba(0,0,0,.06), 0 2px 4px rgba(0,0,0,.04);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,.08), 0 4px 6px rgba(0,0,0,.04);
+}
+
+html { font-size: 16px; }
+
+body {
+  font-family: 'Geist', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.fade-up   { animation: fadeUp   .35s ease both; }
+.fade-in   { animation: fadeIn   .25s ease both; }
+.scale-in  { animation: scaleIn  .25s ease both; }
+
+.fade-up:nth-child(1) { animation-delay: .05s; }
+.fade-up:nth-child(2) { animation-delay: .10s; }
+.fade-up:nth-child(3) { animation-delay: .15s; }
+.fade-up:nth-child(4) { animation-delay: .20s; }
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 99px; }
+
+/* ── Selection ───────────────────────────────────────────────────────────── */
+::selection { background: var(--accent-light); color: var(--accent); }
